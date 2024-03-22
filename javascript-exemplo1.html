@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p {
+                text-align: center;
+                background: rgba(0, 0, 200, 0.3);
+                color: rgba(0, 0, 200, 0.6);
+                border-radius: 10px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="paragrafo">1 Aula JS</p>
+        <p id="paragrafo2">2 Aula JS</p>
+        <p>3 Aula JS</p>
+        <p>4 Aula JS</p>
+
+        Nome:<input type="text" id="nome"/>
+        E-mail:<input type="text" id="email"/>
+        <br><br>
+
+        numero1<input type="text" id="num1"/>
+        numero2<input type="text" id="num2"/>
+        <button id="calcula">Calcular</button>
+
+        <button id="enviar">Enviar</button>
+        <button id="trocaCor">Cor</button>
+
+        <script>
+            document.querySelector("#calcula").onclick = function(){
+                let num1 = parseInt(document.querySelector("#num1").value);
+                let num2 = parseInt(document.querySelector("#num2").value);
+                document.querySelector("#paragrafo").innerHTML = "Soma = "+(num1+num2)+"<br>";
+                document.querySelector("#paragrafo").innerHTML += "Subtracao = "+(num1-num2)+"<br>";
+                document.querySelector("#paragrafo").innerHTML += "Multiplicacao = "+(num1*num2)+"<br>";
+                document.querySelector("#paragrafo").innerHTML += "Divisao = "+(num1/num2);
+            }
+
+
+            const paragrafo = document.querySelector("#paragrafo");
+            const botao = document.querySelector('#enviar');
+            const botaoTrocaCor = document.querySelector("#trocaCor");
+
+            paragrafo.addEventListener('click', alertar);
+            botao.addEventListener('click', trocaNome);
+            botaoTrocaCor.addEventListener('click', trocaCor);
+            
+            function alertar() {
+                let nome = prompt("Qual seu nome?");
+                paragrafo.textContent = "Bem vindo "+nome+".";
+            }
+
+            function trocaNome(){
+                let nome = document.querySelector("#nome").value;
+                let email = document.querySelector("#email").value;
+                paragrafo.innerHTML += "<b>Bem vindo "+nome+" - Seu e-mail: "+email+".</b>";
+            }
+
+            function trocaCor() {
+                botao.style.backgroundColor = "orange";
+                document.querySelector("#nome").style.backgroundColor = "orange";
+                document.querySelector("#email").style.backgroundColor = "orange";
+                botaoTrocaCor.style.backgroundColor = "orange";
+            }
+        </script>
+    </body>
+</html>
